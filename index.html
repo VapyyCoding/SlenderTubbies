@@ -55,7 +55,7 @@
             animation-delay: 6s;
         }
         .background-image:nth-child(3) {
-            background-image: url('1.png');
+            background-image: url('3.png');
             animation-delay: 12s;
         }
 
@@ -93,7 +93,7 @@
         /* Title styles */
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         h1 span {
@@ -218,6 +218,20 @@
     <script>
         let userInput = '';
         let tinkyCount = 0;
+
+    // Función para reproducir el sonido
+    function playSound(soundFile) {
+        let audio = new Audio(soundFile);
+        audio.play();
+    }
+
+    // Asignar el evento de clic a cada botón
+    document.querySelectorAll('.button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Reproducir el sonido correspondiente cuando se hace clic en el botón
+            playSound('confirmMenu.ogg'); // Asegúrate de tener este archivo de sonido
+        });
+    });
         
         document.body.addEventListener('keydown', function(event) {
             userInput += event.key.toLowerCase(); 
@@ -314,7 +328,9 @@
                 window.location.href = "https://tetrismania.net";
                 userInput = ''; 
             }
+            
         });
+    
     </script>   
 </body>
 </html>
